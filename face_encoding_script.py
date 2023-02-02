@@ -1,10 +1,13 @@
 import dlib
 import numpy as np
+import os
 
-face_recognition_model = 'dlib_face_recognition_resnet_model_v1.dat'
+dir_ = os.path.dirname(__file__)
+
+face_recognition_model = os.path.join(dir_, 'dlib_face_recognition_resnet_model_v1.dat')
 face_encoder = dlib.face_recognition_model_v1(face_recognition_model)
 
-predictor_5_point_model = 'shape_predictor_5_face_landmarks.dat'
+predictor_5_point_model = os.path.join(dir_, 'shape_predictor_5_face_landmarks.dat')
 pose_predictor_5_point = dlib.shape_predictor(predictor_5_point_model)
 
 face_detector = dlib.get_frontal_face_detector()
